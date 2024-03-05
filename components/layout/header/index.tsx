@@ -3,19 +3,36 @@
 import React from "react";
 import Image from "next/image"; // Import the Image component from the appropriate package
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const Links = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "About",
+    href: "#",
+  },
+  {
+    name: "Services",
+    href: "#",
+  },
+  {
+    name: "Contact",
+    href: "#",
+  },
+];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
 
+  const pathname = usePathname();
+  console.log(pathname);
+
   return (
-    <header className="w-full fixed inset-0 h-24 bg-primary p-4 flex justify-between items-center ">
-      <Image
-        src="/logo.svg"
-        alt="header"
-        objectFit="cover"
-        width={180}
-        height={60}
-      />
+    <header className="w-full h-20 bg-primary p-4 flex justify-between items-center ">
+      <Image src="/logo.svg" alt="header" width={180} height={60} />
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         className={`toggle relative w-10 h-10 cursor-pointer flex flex-col items-center justify-center gap-3 transition-all duration-300 ${
@@ -43,20 +60,22 @@ const Header = () => {
       <nav
         className={`${
           isMenuOpen ? "scale-1" : "-translate-y-1/2 scale-0 translate-x-full"
-        } flex flex-col gap-4 absolute top-24 left-0 transition-all duration-1000 ease-out w-full h-screen bg-primary p-4`}
+        } flex flex-col z-20  items-center gap-4 absolute top-20 left-0 transition-all duration-500 ease-out w-full h-screen bg-primary p-4`}
       >
-        <Link href="#" className="text-white">
-          Home
-        </Link>
-        <Link href="#" className="text-white">
-          About
-        </Link>
-        <Link href="#" className="text-white">
-          Services
-        </Link>
-        <Link href="#" className="text-white">
-          Contact
-        </Link>
+        {Links.map((link, index) => (
+          <Link
+            key={index}
+            href={link.href}
+            onClick={() => setIsMenuOpen(false)}
+            className={`text-white text-lg  transition-all hover:text-gray-100 duration-300 active:text-gray-100 ${
+              "/" + pathname.split("/")[1] === link.href
+                ? "text-gray-100 scale-110 font-bold "
+                : ""
+            }`}
+          >
+            {link.name}
+          </Link>
+        ))}
       </nav>
     </header>
   );
