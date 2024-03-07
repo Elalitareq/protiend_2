@@ -30,6 +30,9 @@ export default function Home() {
         <div className="inset-0 z-10 w-full absolute flex justify-center items-center p-6 pt-12">
           <CodeChecker />
         </div>
+        <div className="px-4 py-8 bg-primary">
+          
+        </div>
       </div>
     </div>
   );
