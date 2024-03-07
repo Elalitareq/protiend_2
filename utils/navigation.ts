@@ -7,12 +7,4 @@ export const LINKS = [
     name: "All Products",
     href: "/products",
   },
-  {
-    name: "Services",
-    href: "#",
-  },
-  {
-    name: "Contact",
-    href: "#",
-  },
 ];

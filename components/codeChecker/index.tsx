@@ -4,6 +4,7 @@ import React, { ChangeEventHandler, useState } from "react";
 
 const CodeChecker = () => {
   const [code, setCode] = useState<string>("");
+  const [isDisabled, setIsDisabled] = useState<boolean>(true);
   const handleCodeChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     const { value } = event.target;
     if (value && value.length < 6) {
@@ -12,6 +13,19 @@ const CodeChecker = () => {
     if (value === null || value === undefined || value === "") {
       setCode("");
     }
+  };
+  const checkCode = async () => {
+    setIsDisabled(true);
+    const response = await fetch("/api/authenticatedCodes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ code }),
+    });
+    const data = await response.json();
+    setIsDisabled(false);
+    console.log(data);
   };
   return (
     <div
@@ -33,6 +47,7 @@ const CodeChecker = () => {
         required
       />
       <button
+        onClick={checkCode}
         disabled={code.length < 5}
         className="bg-black text-white px-8 py-3 text-xl absolute disabled:bg-gray-300 -bottom-8 tracking-widest active:bg-[#222] hover:bg-[#222] transition-all duration-300   disabled:outline-none"
       >

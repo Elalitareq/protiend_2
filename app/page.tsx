@@ -1,5 +1,6 @@
 import CodeChecker from "@/components/codeChecker";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -56,9 +57,12 @@ export default function Home() {
           />
         </div>
         <div className="w-full flex justify-center">
-          <button className=" bg-primary border-solid border hover:bg-white hover:text-primary active:bg-white active:text-primary border-white rounded-sm px-4 py-2 text-white text-xl my-4">
+          <Link
+            href="/products"
+            className=" bg-primary border-solid border hover:bg-white hover:text-primary active:bg-white active:text-primary border-white rounded-sm px-4 py-2 text-white text-xl my-4"
+          >
             View All Products
-          </button>
+          </Link>
         </div>
       </div>
     </div>
