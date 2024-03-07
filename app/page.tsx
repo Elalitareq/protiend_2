@@ -19,7 +19,7 @@ export default function Home() {
           Under Maintenance
         </h1>
         <p className="font-light text-gray-500 md:text-lg xl:text-xl dark:text-gray-400">
-          Our Enterprise administrators are performing scheduled maintenance.
+          Our Enterprise administrators are performing scheduled maintenance. 
         </p>
       </div>
     </section>
