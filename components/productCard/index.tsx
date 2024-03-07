@@ -5,20 +5,22 @@ const ProductCard = ({
   name,
   price,
   size,
+  image,
 }: {
   name: string;
   price: number;
   size: string;
+  image: string;
 }) => {
   return (
     <div className="w-full relative min-h-[560px] h-[560px]">
       <div className="w-full shadow-[#00000055] shadow-card flex flex-col items-start px-8 my-4 z-10 absolute">
         <Image
-          src="/products/main_page/60261a_a69a7d5957f54707b0333d0ef4d13582~mv2.webp"
+          src={image}
           alt="steroids"
           height={250}
-          width={250}
-          className="object-contain mx-auto mb-4"
+          width={221.42}
+          className="object-contain mx-auto mb-4 mix-blend-multiply	w-auto h-[250px]"
         />
         <h4 className="text-2xl font-bold text-primary mb-4">Meditech</h4>
         <h3 className="text-xl font-bold text-red-400 mb-4">{price} USD</h3>

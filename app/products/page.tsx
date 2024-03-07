@@ -1,5 +1,6 @@
 import ProductCard from "@/components/productCard";
 import React from "react";
+import { products } from "./products";
 
 const Products = () => {
   return (
@@ -7,8 +8,14 @@ const Products = () => {
       <h1 className="text-4xl font-bold text-primary my-8 mx-auto text-center px-2">
         Our Products
       </h1>
-      {[...Array(10)].map((_, index) => (
-        <ProductCard key={index} />
+      {products.map(({ concentration, molecule, price, image }, index) => (
+        <ProductCard
+          name={molecule}
+          size={concentration}
+          price={price}
+          image={image}
+          key={index}
+        />
       ))}
     </div>
   );

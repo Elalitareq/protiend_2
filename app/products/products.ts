@@ -1,0 +1,67 @@
+export const products = [
+  {
+    manufacturer: "Meditech",
+    form: "Oral",
+    molecule: "Anadrol (Oxymethalone)",
+    concentration: "50mg",
+    volume: "50mg",
+    recommendedDosage: "1 tablet per day",
+    productDescription:
+      "The hormone Oxymethalone is an anabolic hormone that is taken orally. It is considered a synthetic hormone similar to testosterone in it's functions, so it is known as synthetic testosterone. It belongs to the category of androgens and anabolic steroids. It is used in treating anemia resulting from Undergoing Chemotherapy in cancer patients which results in a decrease of red blood cells in the body, it is also used in the treatment of osteoperosis and decreased muscle tissue in AIDS, where it stimulates growth of the muscles in the body. Oxymetholone falls under the commercial name of the drug, Anapaolone, Anadrol.",
+    price: 160,
+    image: "/products/product_images/Anadrol_Oxymethalone.webp",
+    id: 1,
+  },
+  {
+    manufacturer: "Meditech",
+    form: "Oral",
+    molecule: "Anavar (Oxandrolone)",
+    concentration: "1Omg",
+    volume: "10mg",
+    recommendedDosage: "20-40mg/day",
+    productDescription:
+      "Anavar or Oxandrolone is an oral anabolic steroid derived from dihydronetestosterone, well designed to enhance strength and achieve high gains in muscle tissue without major side effects.",
+    price: 145,
+    image: "/products/product_images/Anavar_Oxandrolone.webp",
+    id: 2,
+  },
+  {
+    manufacturer: "Meditech",
+    form: "Injection",
+    molecule: "Boldenone Undecylenate 250",
+    concentration: "250mg/ml",
+    volume: "10ml",
+    recommendedDosage: "200-800mg/week",
+    productDescription:
+      "Also known as Equipoise, the Boldenone is a steroid highly valued by fundamental athletes. It provides exceptional gains while being very safe. The Boldenone is appreciated for a mass gain also because it provides an impressive muscular curve.",
+    price: 95,
+    image: "/products/product_images/Boldenone_Undecylenate_250.webp",
+    id: 3,
+  },
+  {
+    manufacturer: "Meditech",
+    form: "Injection",
+    molecule: "Boldenone Undecylenate 400",
+    concentration: "400mg/ml",
+    volume: "10ml",
+    recommendedDosage: "200-800mg/week",
+    productDescription:
+      "Also known as Equipoise, the Boldenone is a steroid highly valued by fundamental athletes. It provides exceptional gains while being very safe. The Boldenone is appreciated for a mass gain also because it provides an impressive muscular curve.",
+    price: 145,
+    image: "/products/product_images/Boldenone_Undecylenate_400.webp",
+    id: 4,
+  },
+  {
+    manufacturer: "Meditech",
+    form: "Oral",
+    molecule: "Clenbuterol",
+    concentration: "40mg",
+    volume: "40mg",
+    recommendedDosage: "40mm grams per day",
+    productDescription:
+      "Clenbuterol is considered one of the effective products that help in losing and burning fat significantly. Clenbuterol is very popular for burning fat and losing weight. Clenbuterol is well known in the field of bodybuilding because of Clenbuterol's great effectiveness in losing fat and reaching the maximum degree of drying. This is why it is used during periods of slimming and drying because it helps a lot.",
+    price: 88,
+    image: "/products/product_images/Clenbuterol.webp",
+    id: 5,
+  },
+];
