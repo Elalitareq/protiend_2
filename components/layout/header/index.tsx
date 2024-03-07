@@ -4,25 +4,7 @@ import React from "react";
 import Image from "next/image"; // Import the Image component from the appropriate package
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const Links = [
-  {
-    name: "Home",
-    href: "/",
-  },
-  {
-    name: "About",
-    href: "#",
-  },
-  {
-    name: "Services",
-    href: "#",
-  },
-  {
-    name: "Contact",
-    href: "#",
-  },
-];
+import { LINKS } from "@/utils/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
@@ -62,7 +44,7 @@ const Header = () => {
           isMenuOpen ? "scale-1" : "-translate-y-1/2 scale-0 translate-x-full"
         } flex flex-col z-20  items-center gap-4 absolute top-20 left-0 transition-all duration-500 ease-out w-full h-screen bg-primary p-4`}
       >
-        {Links.map((link, index) => (
+        {LINKS.map((link, index) => (
           <Link
             key={index}
             href={link.href}
