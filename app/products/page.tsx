@@ -8,9 +8,10 @@ const Products = () => {
       <h1 className="text-4xl font-bold text-primary my-8 mx-auto text-center px-2">
         Our Products
       </h1>
-      {products.map(({ concentration, molecule, price, image }, index) => (
+      {products.map(({ concentration, id, molecule, price, image }, index) => (
         <ProductCard
           name={molecule}
+          id={id}
           size={concentration}
           price={price}
           image={image}
