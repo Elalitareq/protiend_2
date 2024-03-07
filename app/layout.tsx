@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.className}>
         {/* <Header /> */}
-        <main className="min-h-screen bg-white dark:bg-gray-900">
+        <main className="min-h-screen bg-white dark:bg-gray-900 flex justify-center items-center">
           {children}
         </main>
         {/* <Footer /> */}
