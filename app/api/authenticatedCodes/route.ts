@@ -12,6 +12,7 @@ export async function POST(request: NextRequest) {
 
     // Step 2: Check if the provided code exists in the JSON object.
     const { code } = await request.json();
+    await new Promise((resolve) => setTimeout(resolve, 5000));
     if (codes.hasOwnProperty(code)) {
       // Step 3: If the code exists and is not marked as used, mark it as used and return the success response.
       if (!codes[code].used) {
@@ -21,6 +22,7 @@ export async function POST(request: NextRequest) {
           JSON.stringify(codes, null, 2),
           "utf-8"
         );
+
         return new Response(JSON.stringify({ status: "success" }), {
           status: 200,
           headers: { "Content-Type": "application/json" },

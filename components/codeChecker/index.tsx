@@ -4,7 +4,10 @@ import React, { ChangeEventHandler, useState } from "react";
 
 const CodeChecker = () => {
   const [code, setCode] = useState<string>("");
-  const [isDisabled, setIsDisabled] = useState<boolean>(true);
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
+  const [message, setMessage] = useState<
+    "code_does_not_exist" | "error" | "success" | "used_before" | ""
+  >("");
   const handleCodeChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     const { value } = event.target;
     if (value && value.length < 6) {
@@ -24,8 +27,17 @@ const CodeChecker = () => {
       body: JSON.stringify({ code }),
     });
     const data = await response.json();
+    setMessage(data.status);
     setIsDisabled(false);
-    console.log(data);
+  };
+  const messageToResp = {
+    code_does_not_exist: { text: "Code does not exist", color: "red" },
+    error: {
+      text: "Error processing authentication code",
+      color: "red",
+    },
+    success: { text: "Code is valid", color: "green" },
+    used_before: { text: "Code has been used before", color: "orangered" },
   };
   return (
     <div
@@ -34,12 +46,17 @@ const CodeChecker = () => {
       }}
       className="bg-white rounded p-4 flex flex-col items-center gap-4 shadow-black relative pb-10"
     >
-      <h1 className="font-bold text-4xl text-center px-5 leading-snug">
-        CHECK PRODUCT AUTHENTICITY
+      <h1
+        className="font-bold text-4xl text-center px-5 leading-snug"
+        style={{
+          color: message ? messageToResp[message]?.color : "black",
+        }}
+      >
+        {message ? messageToResp[message]?.text : "CHECK PRODUCT AUTHENTICITY"}
       </h1>
       <input
         type="text"
-        id="first_name"
+        id="code"
         value={code}
         onChange={handleCodeChange}
         className=" px-4 py-2 text-center focus:bg-gray-100 focus:border:none focus:outline-none text-2xl  w-full placeholder:text-2xl border-b-2 border-t-0 border-l-0 border-r-0 border-black  "
@@ -48,7 +65,7 @@ const CodeChecker = () => {
       />
       <button
         onClick={checkCode}
-        disabled={code.length < 5}
+        disabled={code.length < 5 || isDisabled}
         className="bg-black text-white px-8 py-3 text-xl absolute disabled:bg-gray-300 -bottom-8 tracking-widest active:bg-[#222] hover:bg-[#222] transition-all duration-300   disabled:outline-none"
       >
         Check Code
