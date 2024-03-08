@@ -1,28 +1,22 @@
+import mongoose from "mongoose";
 import { NextRequest } from "next/server";
-import fs from "fs/promises";
+import connectDB from "@/lib/connectDb";
+import Code from "@/models/code";
 
 export async function POST(request: NextRequest) {
+  await connectDB();
   try {
     // Step 1: Read the content of the "authentication_code.json" file.
-    const fileContent = await fs.readFile(
-      "./app/api/authenticatedCodes/authentication_codes.json",
-      "utf-8"
-    );
-    const codes = JSON.parse(fileContent);
 
     // Step 2: Check if the provided code exists in the JSON object.
     const { code } = await request.json();
+    const codeExists = await Code.findOne({ code });
     await new Promise((resolve) => setTimeout(resolve, 5000));
-    if (codes.hasOwnProperty(code)) {
+    if (codeExists) {
       // Step 3: If the code exists and is not marked as used, mark it as used and return the success response.
-      if (!codes[code].used) {
-        codes[code].used = true;
-        await fs.writeFile(
-          "./app/api/authenticatedCodes/authentication_codes.json",
-          JSON.stringify(codes, null, 2),
-          "utf-8"
-        );
-
+      if (!codeExists.used!) {
+        codeExists.used = true;
+        await codeExists.save();
         return new Response(JSON.stringify({ status: "success" }), {
           status: 200,
           headers: { "Content-Type": "application/json" },
