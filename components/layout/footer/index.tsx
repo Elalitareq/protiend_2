@@ -6,7 +6,9 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="bg-primary w-full flex flex-col lg:flex-row lg:justify-between items-center gap-4 p-4 ">
-      <Image src="/logo.svg" alt="header" width={180} height={60} />
+      <Link href="/">
+        <Image src="/logo.svg" alt="header" width={180} height={60} />
+      </Link>
       <nav className="flex flex-col z-20  items-center gap-4 duration-500 ease-out w-full  bg-primary ">
         {LINKS.map((link, index) => (
           <Link

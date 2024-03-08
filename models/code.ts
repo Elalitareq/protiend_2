@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import mongoose, { Schema, model } from "mongoose";
 
 const CodeSchema = new Schema({
   code: {
@@ -16,5 +16,6 @@ const CodeSchema = new Schema({
   },
 });
 
-const Code = model("code", CodeSchema);
-export default Code;
+const User = mongoose.models.Code || mongoose.model("Code", CodeSchema);
+
+export default User;

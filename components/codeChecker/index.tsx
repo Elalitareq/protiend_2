@@ -17,19 +17,25 @@ const CodeChecker = () => {
       setCode("");
     }
   };
+
   const checkCode = async () => {
     setIsDisabled(true);
-    const response = await fetch("/api/authenticatedCodes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ code }),
-    });
-    const data = await response.json();
-    setMessage(data.status);
+    try {
+      const response = await fetch("/api/authenticatedCodes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ code }),
+      });
+      const data = await response.json();
+      setMessage(data.status);
+    } catch (e) {
+      console.log(e);
+    }
     setIsDisabled(false);
   };
+
   const messageToResp = {
     code_does_not_exist: { text: "Code does not exist", color: "red" },
     error: {
