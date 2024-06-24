@@ -58,6 +58,7 @@ const CodeChecker = () => {
           color: message ? messageToResp[message]?.color : "black",
         }}
       >
+        {" "}
         {message ? messageToResp[message]?.text : "CHECK PRODUCT AUTHENTICITY"}
       </h1>
       <input
