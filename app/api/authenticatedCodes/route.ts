@@ -10,11 +10,11 @@ export async function POST(request: NextRequest) {
 
     // Step 2: Check if the provided code exists in the JSON object.
     const { code } = await request.json();
-    const codeExists = await Code.findOne({ code });
+    const codeExists = await Code.findOne({ code: code.toLowerCase() });
     if (codeExists) {
       // Step 3: If the code exists and is not marked as used, mark it as used and return the success response.
       if (!codeExists.used!) {
-        await Code.updateOne({ code }, { user: true });
+        await Code.updateOne({ code }, { used: true });
         return new Response(JSON.stringify({ status: "success" }), {
           status: 200,
           headers: { "Content-Type": "application/json" },

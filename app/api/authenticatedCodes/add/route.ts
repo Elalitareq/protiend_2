@@ -12,16 +12,16 @@ export async function POST(request: NextRequest) {
 
     // Step 2: Check if the provided code exists in the JSON object.
     const { codes }: { codes: string[] } = await request.json();
+    console.log(codes);
 
-    await asyncForEach(codes, async (code) => {
+    codes.forEach(async (code) => {
       await Code.create({
         code,
         used: false,
       });
     });
+    return new Response(JSON.stringify({ status: "success" }));
   } catch (error) {
-    console.error("Error processing authentication code:", error);
-
     return new Response(JSON.stringify({ status: "error" }), {
       status: 500,
       headers: { "Content-Type": "application/json" },

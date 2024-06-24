@@ -37,13 +37,13 @@ const CodeChecker = () => {
   };
 
   const messageToResp = {
-    code_does_not_exist: { text: "Code does not exist", color: "red" },
+    code_does_not_exist: { text: "YOUR PRODUCT IS UNAUTHENTIC!", color: "red" },
     error: {
-      text: "Error processing authentication code",
+      text: "YOUR PRODUCT IS UNAUTHENTIC!",
       color: "red",
     },
-    success: { text: "Code is valid", color: "green" },
-    used_before: { text: "Code has been used before", color: "orangered" },
+    success: { text: "YOUR PRODUCT IS AUTHENTIC", color: "green" },
+    used_before: { text: "YOUR PRODUCT IS AUTHENTIC", color: "#fcad03" },
   };
   return (
     <div
