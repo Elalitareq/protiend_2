@@ -165,7 +165,7 @@ export const products = [
     productDescription:
       "Anabolic steroid with an enhanced anabolic and a reduced androgenic activity. The drug is used by athletes for muscle growth, appetite stimulation, increased red blood cell production and bone density. It increases protein synthesis in muscle cells and helps to achieve a positive nitrogen balance",
     price: 98,
-    image: "/products/product_images/Nandrolone_Phenylpropionate_NPP.webp",
+    image: "/products/product_images/Nandrolone_Phenylpropionate_NPP.png",
     id: 13,
   },
   {

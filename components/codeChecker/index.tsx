@@ -43,7 +43,7 @@ const CodeChecker = () => {
       color: "red",
     },
     success: { text: "YOUR PRODUCT IS AUTHENTIC", color: "green" },
-    used_before: { text: "YOUR PRODUCT IS AUTHENTIC", color: "#fcad03" },
+    used_before: { text: "CODE ALREADY BEEN USED", color: "#fcad03" },
   };
   return (
     <div
